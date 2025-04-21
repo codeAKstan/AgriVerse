@@ -1,7 +1,10 @@
+"use client"
+
 import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 export default function HowItWorks() {
   const steps = [
@@ -35,20 +38,38 @@ export default function HowItWorks() {
     },
   ]
 
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+
   return (
     <section className="py-20">
-      <div className="container px-4 md:px-6">
-        <div className="text-center mb-12">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">How AgriVerse Works</h2>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
             Our platform makes it easy to connect farmers with buyers through a simple, secure process.
           </p>
-        </div>
+        </motion.div>
+
         <div className="grid gap-12 mt-12">
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={index}
               className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeIn}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className={`order-2 ${index % 2 !== 0 ? "md:order-1" : "md:order-2"}`}>
                 <div className="relative h-[300px] rounded-xl overflow-hidden shadow-lg">
@@ -61,7 +82,7 @@ export default function HowItWorks() {
                 </div>
               </div>
               <div className={`order-1 ${index % 2 !== 0 ? "md:order-2" : "md:order-1"}`}>
-                <div className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   Step {step.number}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
@@ -69,8 +90,8 @@ export default function HowItWorks() {
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-2">
-                    <div className="rounded-full bg-green-100 p-1 mt-0.5">
-                      <Check className="h-4 w-4 text-green-600" />
+                    <div className="rounded-full bg-primary/10 p-1 mt-0.5">
+                      <Check className="h-4 w-4 text-primary" />
                     </div>
                     <div>
                       <p className="font-medium">For Farmers</p>
@@ -78,8 +99,8 @@ export default function HowItWorks() {
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <div className="rounded-full bg-green-100 p-1 mt-0.5">
-                      <Check className="h-4 w-4 text-green-600" />
+                    <div className="rounded-full bg-primary/10 p-1 mt-0.5">
+                      <Check className="h-4 w-4 text-primary" />
                     </div>
                     <div>
                       <p className="font-medium">For Buyers</p>
@@ -88,25 +109,40 @@ export default function HowItWorks() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {steps.map((step, index) =>
             index < steps.length - 1 ? (
-              <div key={`arrow-${index}`} className="flex justify-center">
-                <ArrowRight className="h-8 w-8 text-green-600" />
-              </div>
+              <motion.div
+                key={`arrow-${index}`}
+                className="flex justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <ArrowRight className="h-8 w-8 text-primary" />
+              </motion.div>
             ) : null,
           )}
         </div>
-        ))}
-        <div className="mt-16 text-center">
-          <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
+
+        <motion.div
+          className="mt-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Button asChild size="lg" className="rounded-full">
             <Link href="/marketplace">
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,137 +1,125 @@
 import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
-import Image from "next/image"
+import { Facebook, Instagram, Twitter, Linkedin, Mail, MapPin, Phone, Leaf } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="container px-4 md:px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-          <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src="/placeholder.svg?height=32&width=32" alt="AgriVerse Logo" width={32} height={32} />
-              <span className="font-bold">AgriVerse</span>
+    <footer className="bg-background border-t">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="space-y-4">
+            <Link href="/" className="flex items-center space-x-2">
+              <Leaf className="h-8 w-8 text-primary" />
+              <span className="font-bold text-xl">AgriVerse</span>
             </Link>
-            <p className="text-sm text-muted-foreground mb-4 max-w-xs">
+            <p className="text-muted-foreground text-sm max-w-xs">
               A blockchain-powered marketplace connecting farmers directly with buyers worldwide, ensuring fair prices
               and transparent transactions.
             </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
+            <div className="flex space-x-4">
+              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" asChild>
+                <Link href="#" aria-label="Facebook">
+                  <Facebook className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" asChild>
+                <Link href="#" aria-label="Twitter">
+                  <Twitter className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" asChild>
+                <Link href="#" aria-label="Instagram">
+                  <Instagram className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" asChild>
+                <Link href="#" aria-label="LinkedIn">
+                  <Linkedin className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
-          <div>
-            <h3 className="font-medium mb-4">For Farmers</h3>
-            <ul className="space-y-2 text-sm">
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">Quick Links</h3>
+            <ul className="space-y-2">
               <li>
-                <Link href="/farmer-portal" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Farmer Portal
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/farmer-portal/products"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  List Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/farmer-portal/orders"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Manage Orders
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/farmer-portal/analytics"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Analytics
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-medium mb-4">For Buyers</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/marketplace" className="text-muted-foreground hover:text-primary transition-colors">
                   Marketplace
                 </Link>
               </li>
               <li>
-                <Link href="/buyer-dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Buyer Dashboard
+                <Link href="/farmer-portal" className="text-muted-foreground hover:text-primary transition-colors">
+                  For Farmers
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/buyer-dashboard/orders"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Order History
+                <Link href="/buyer-dashboard" className="text-muted-foreground hover:text-primary transition-colors">
+                  For Buyers
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/buyer-dashboard/saved"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Saved Farms
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-medium mb-4">Company</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blockchain-verification"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Blockchain Verification
                 </Link>
               </li>
             </ul>
           </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-muted-foreground text-sm">123 AgriTech Way, San Francisco, CA 94107, USA</span>
+              </li>
+              <li className="flex items-center">
+                <Phone className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
+                <span className="text-muted-foreground text-sm">+1 (555) 123-4567</span>
+              </li>
+              <li className="flex items-center">
+                <Mail className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
+                <span className="text-muted-foreground text-sm">info@agriverse.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">Newsletter</h3>
+            <p className="text-muted-foreground text-sm">
+              Subscribe to our newsletter for the latest updates on products, farms, and agricultural insights.
+            </p>
+            <div className="flex space-x-2">
+              <Input type="email" placeholder="Your email" className="rounded-full" />
+              <Button className="rounded-full">Subscribe</Button>
+            </div>
+          </div>
         </div>
+
         <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AgriVerse. All rights reserved.</p>
-          <div className="flex gap-4 text-xs text-muted-foreground">
-            <Link href="/terms" className="hover:text-foreground transition-colors">
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} AgriVerse. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <Link href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
+            <Link href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="hover:text-foreground transition-colors">
+            <Link href="/cookies" className="hover:text-primary transition-colors">
               Cookie Policy
             </Link>
           </div>

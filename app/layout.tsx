@@ -16,7 +16,6 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "AgriVerse | Global Agricultural Marketplace",
   description: "Connect farmers directly with buyers worldwide on our blockchain-based marketplace",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
